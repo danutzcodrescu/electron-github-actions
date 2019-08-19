@@ -1,20 +1,23 @@
 language: node_js
 node_js:
-  - node
-os: 
-  - osx
-  - windows
-
+- node
+os:
+- osx
+- windows
+before_install:
+- yarn config delete proxy
+- npm config rm proxy
+- npm config rm https-proxy
 script:
-  - yarn install
-  - yarn dist
-
+- yarn install
+- yarn dist
 deploy:
   provider: s3
-  access_key_id: $Access_Key
-  secret_access_key: $Secret_key
+  access_key_id:
+    secure: SMg/s+vFWnAUzjCS4+mF/UF3Sm9yHEcRvAx4bk+iumLLEjCwtlEoNWbJgBHgTyi4D+/GuCf7WmS8XJnqd8pXCZDPlvqy2sFUL+ECAOqOXbT1W+/hig6zWVgiKoOzGinbTGIBchnCpSe39hRXL/DLU+yaUbxT/yd3Cfi0TQEsKeH97qZDL9NQOD4eqnddWrAZCOFXrVuGY1HhezyFo4NoVkw5L8xmqTmCNndJh8/3VGYavL+AMYM3BlaAOhKkTwFq+rzHDW351uJo5IL/RnXfr3ztGCL6MyZmOgk3LzHPn0KTheFUei9TRAlcEpS3ecKmwf/AzIa1GmELZRPxY1dH+nPtYjiPtjUahKcJjyY0vB3PSzhd3WXHtz9gevLZBxZgFpIoEW7U+6GXNjj6mMs9c3Lo7zUHby07JV/82GdqM39A41wmp6a84Z6pJCXe0SZRuZdUHU+ngiTwE8pS400+a/QeFnjJSk5wB+GajLl2ekhn1y3B/HtH54ctkPqhJG++MBFilS0ScQjojpjomCKEl49W1S6XGtBvvy1M8c6MjwN+XvZ//40WHKvYfDxi0ON/h9iTysEK/W6AC9D4ZO3PKc491lM0+2x6GbvLGSaw0oljWJanZaO7MvAfVPCnzwxvKnr2QNxdEzRNQL3Lv+6cQFyQoxBsPb8N7E/VVuyS4EQ=
+  secret_access_key:
+    secure: Zxw3OwVvTRR4/DRzdvjOw1gL3I8xWV1s+xSV7sHYZInOSzD1sMY25+j6hAciK/1aRzjoKBCNXlROFwlgaFWqXqC3iJApCKFaDZ9XMJIgUHhuYckJY4nGdP1fID0qr2jxeq+TpylFqXZYEZQLA4o04Ze2jGt1tg3Z9gA0cM2qBATkzQ4wkVPDcjan4DgHfRg/S+i7wHFF7Vi+Vbim0oikDTXgYsmaSCSSgpfAk/o4MAfEuXcasq8DalEcrDigN9HsdOJRb1i3hzbv2V4bcXwysIAqd9wkdinnUruJ+Z842qp6HdNT0TvSzY3KeY3cjZ4TMCoOrit7ZnWqtXeucNTqYAx5qASHPK7muGKNym0MeFw9RYo/u9Sw3BeDi9chs//FYMqxaVaxizJ14EQQj5nkba4IYVvG7K71O3emWxt54b44QfEygNIzi88WUXMDeorsA0hjZmIbyfADdRUQ6jQ9Ioz3aiJGAz8pnE50e5qohaMKXBmtiHJoacJKNT5YTbEY+o7qh8mPDxUP/BYsri001zCwB9DVonjuPzNSQ01qp1QHG8Nv7CGQa4bjy/nNKBwpc1se1NT4n2Mu6+zLRBFyfKZoxa7JEooJIXHqN+Vln4R1Orv71dX5gvTa2ygSYCf+Ssdj+5oSi/Tuqf3VPh3tnWJDhmVdkClr0mE8cL3+G0Y=
   bucket: electron-auto-update-test
   upload-dir: travis
   skip_cleanup: true
   local_dir: release
-
