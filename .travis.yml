@@ -5,9 +5,14 @@ os:
 - osx
 - windows
 
+before_install:
+  - yarn config delete proxy
+  - npm config rm proxy
+  - npm config rm https-proxy
+
 script:
-- npm install
-- npm dist
+- yarn install
+- yarn dist
 deploy:
   provider: s3
   access_key_id:
