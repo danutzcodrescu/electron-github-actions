@@ -1,8 +1,11 @@
 language: node_js
 node_js:
-  - 10
-os: osx
+  - lts/10
+os: 
+  - osx
+  - windows
 cache: yarn
+
 script:
   - yarn install
   - yarn dist
