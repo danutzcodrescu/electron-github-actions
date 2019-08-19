@@ -43,7 +43,7 @@ export const Welcome = withStyles(styles)((props: IProps) => {
     <>
       <Header />
       <Typography className={classes.text} variant="h4">
-        Hello
+        Hello there
       </Typography>
 
       <Typography className={classes.text} variant="body1">
