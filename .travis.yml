@@ -5,11 +5,11 @@ os:
 - osx
 - windows
 
-install:
-  - yarn install
-script:
-  - yarn dist
+install: 
+  - yarn
 
+script:
+- yarn dist
 deploy:
   provider: s3
   access_key_id:
