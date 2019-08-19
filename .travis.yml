@@ -4,13 +4,10 @@ node_js:
 os:
 - osx
 - windows
-before_install:
-- yarn config delete proxy
-- npm config rm proxy
-- npm config rm https-proxy
+
 script:
-- yarn install
-- yarn dist
+- npm install
+- npm dist
 deploy:
   provider: s3
   access_key_id:
@@ -21,3 +18,4 @@ deploy:
   upload-dir: travis
   skip_cleanup: true
   local_dir: release
+  region: "us-east-2"
