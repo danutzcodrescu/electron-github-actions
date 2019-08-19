@@ -6,7 +6,7 @@ os:
 - windows
 
 install: 
-  - yarn
+  - yarn install --network-timeout 1000000
 
 script:
 - yarn dist
