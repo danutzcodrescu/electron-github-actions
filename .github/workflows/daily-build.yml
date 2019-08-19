@@ -6,3 +6,9 @@ jobs:
   runs-on: macOS-latest
   steps:
     - uses: actions/checkout@v1
+    - uses: ./hello-world-action
+      with:
+        who-to-greet: 'Octocat'
+      id: hello
+    # This step prints the time.
+    - run: echo "The time was ${{ steps.hello.outputs.time }}"
