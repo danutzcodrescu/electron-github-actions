@@ -4,8 +4,17 @@ node_js:
 os: 
   - osx
   - windows
-cache: yarn
 
 script:
   - yarn install
   - yarn dist
+
+deploy:
+  provider: s3
+  access_key_id: $Access_Key
+  secret_access_key: $Secret_key
+  bucket: electron-auto-update-test
+  upload-dir: travis
+  skip_cleanup: true
+  local_dir: release
+
