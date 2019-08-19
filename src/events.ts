@@ -1,0 +1,11 @@
+export const RESIZE_WINDOW = 'resize-window';
+export const LOGIN_WINDOW = 'login-window';
+export const CANCEL_LOGIN = 'cancel-login';
+export const CLOSED_LOGIN_WINDOW = 'closed-login-window';
+export const LOGGED_IN = 'logged-in';
+export const RESIZE_WINDOW_FROM_USER = 'resize-window-initiated-by-user';
+export const UPDATE_DOWNLOADED = 'update-downloaded';
+export const OPEN_ABOUT_PAGE = 'about-page';
+export const LOGGED_OUT = 'logged-out';
+export const PING_DGC = 'ping-dgc';
+export const RESTART_AND_UPDATE = 'restart and update';

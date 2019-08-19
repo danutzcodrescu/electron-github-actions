@@ -1,0 +1,10 @@
+name: Daily Build Electron
+on: [push]
+
+jobs:
+  build: Daily
+  runs-on: macOS-latest
+  steps:
+    - run: "npm install"
+    - run: "npm rebuild --runtime=electron --target=4.0.8 --disturl=https://atom.io/download/atom-shell --abi=69"
+    - run: "npm run dist"
