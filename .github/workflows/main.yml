@@ -33,10 +33,10 @@ jobs:
       - name: copy on windows
         env:
           BUILD_DATE: date /t
-        run: cp s3 release s3://electron-auto-update-test/%BUILD_DATE% --include "*.exe"
+        run: cp s3 release/ s3://electron-auto-update-test/%BUILD_DATE%/ --exclude "*" --include "*.exe"
         if: matrix.platform == 'windows-latest'
       - name: copy on mac
         env:
           BUILD_DATE: date "+%d/%m/%y"
-        run: cp s3 release s3://electron-auto-update-test/$BUILD_DATE --include "*.dmg"
+        run: cp s3 release/ s3://electron-auto-update-test/$BUILD_DATE/ --exclude "*" --include "*.dmg"
         if: matrix.platform == 'macos-latest'
