@@ -18,9 +18,12 @@ jobs:
       - uses: actions/setup-node@master
         with:
           version: "10.x"
-      - name: Install CLI
+      - name: Install AWS CLI
         run: brew install awscli
         if: matrix.platform == 'macos-latest'
+      - name: Install AWS CLI
+        run: pip3 install awscli
+        if: matrix.platform == 'windows-latest'
       # - run: aws configure aws_access_key_id=$AWS_ACCESS_KEY aws_secret_access_key=$AWS_SECRET_KEY
       # - run: npm install
       # - run: npm run dist
