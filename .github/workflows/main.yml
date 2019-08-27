@@ -24,19 +24,21 @@ jobs:
       - name: Install AWS CLI Windows
         run: pip3 install awscli
         if: matrix.platform == 'windows-latest'
-      - name: install dependencies
-        run: npm install
-      - name: build the app
-        run: npm run dist
-      - name: configure aws
-        run: aws configure set aws_access_key_id=AKIAUDVEVXEO3RCR3RFC aws_secret_access_key=$UQwY36E0gaO4C+6dwy3qkcEjH81ly8ki6V8UXYGj
-      - name: copy on windows
-        env:
-          BUILD_DATE: date /t
-        run: cp s3 release/ s3://electron-auto-update-test/%BUILD_DATE%/ --exclude "*" --include "*.exe"
-        if: matrix.platform == 'windows-latest'
-      - name: copy on mac
-        env:
-          BUILD_DATE: date "+%d/%m/%y"
-        run: cp s3 release/ s3://electron-auto-update-test/$BUILD_DATE/ --exclude "*" --include "*.dmg"
-        if: matrix.platform == 'macos-latest'
+      # - name: install dependencies
+      #   run: npm install
+      # - name: build the app
+      #   run: npm run dist
+      # - name: configure aws
+      #   run: aws configure set aws_access_key_id=AKIAUDVEVXEO3RCR3RFC aws_secret_access_key=$UQwY36E0gaO4C+6dwy3qkcEjH81ly8ki6V8UXYGj
+      # - name: copy on windows
+      #   env:
+      #     BUILD_DATE: date /t
+      #   run: cp s3 release/ s3://electron-auto-update-test/%BUILD_DATE%/ --exclude "*" --include "*.exe"
+      #   if: matrix.platform == 'windows-latest'
+      # - name: copy on mac
+      #   env:
+      #     BUILD_DATE: date "+%d/%m/%y"
+      #   run: cp s3 release/ s3://electron-auto-update-test/$BUILD_DATE/ --exclude "*" --include "*.dmg"
+      #   if: matrix.platform == 'macos-latest'
+      - name: copy
+        run: copy s3 package.json s3:/electron-auto-update-test/test/
