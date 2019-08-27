@@ -3,7 +3,7 @@ name: Build Electron app
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
   build:
@@ -14,4 +14,5 @@ jobs:
       - uses: actions/setup-node@master
         with:
           version: 10
+      - run: npm install
       - run: npm run dist
