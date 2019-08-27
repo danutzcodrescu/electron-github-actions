@@ -11,10 +11,12 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/aws@master
       - uses: actions/setup-node@master
         with:
           version: 10
+      # - run: brew install awscli
+      - run: aws --version
+      - run: aws configure aws_access_key_id=$AWS_ACCESS_KEY aws_secret_access_key=$AWS_SECRET_KEY
       - run: npm install
       - run: npm run dist
       - run: npm run release
