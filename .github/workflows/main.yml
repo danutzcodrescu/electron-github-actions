@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/aws
+      - uses: actions/aws@master
       - uses: actions/setup-node@master
         with:
           version: 10
