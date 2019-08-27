@@ -29,7 +29,7 @@ jobs:
       - name: build the app
         run: npm run dist
       - name: configure aws
-        run: aws configure aws_access_key_id=AKIAUDVEVXEO3RCR3RFC aws_secret_access_key=$UQwY36E0gaO4C+6dwy3qkcEjH81ly8ki6V8UXYGj
+        run: aws configure set aws_access_key_id=AKIAUDVEVXEO3RCR3RFC aws_secret_access_key=$UQwY36E0gaO4C+6dwy3qkcEjH81ly8ki6V8UXYGj
       - name: copy on windows
         env:
           BUILD_DATE: date /t
