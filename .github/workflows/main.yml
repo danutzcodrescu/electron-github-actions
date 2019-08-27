@@ -41,4 +41,4 @@ jobs:
       #   run: cp s3 release/ s3://electron-auto-update-test/$BUILD_DATE/ --exclude "*" --include "*.dmg"
       #   if: matrix.platform == 'macos-latest'
       - name: copy
-        run: aws s3 cp package.json s3:/electron-auto-update-test/test/
+        run: aws s3 cp package.json s3://electron-auto-update-test/test/
