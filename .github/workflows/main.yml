@@ -31,13 +31,13 @@ jobs:
       - name: copy on windows
         env:
           # BUILD_DATE: date /t
-          AWS_ACCESS_KEY_ID: AKIAUDVEVXEO2HATLD6S
-          AWS_SECRET_ACCESS_KEY: 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
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         run: aws s3 cp release/ s3://electron-auto-update-test/28-07-2019/ --recursive --exclude "*" --include "*.exe"
         if: matrix.platform == 'windows-latest'
       - name: copy on mac
         env:
-          AWS_ACCESS_KEY_ID: AKIAUDVEVXEO2HATLD6S
-          AWS_SECRET_ACCESS_KEY: 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
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         run: aws s3 cp release/ s3://electron-auto-update-test/28-07-2019/ --recursive --exclude "*" --include "*.dmg"
         if: matrix.platform == 'macos-latest'
